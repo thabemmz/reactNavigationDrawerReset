@@ -8,7 +8,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 function HomeScreen() {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home screen, visible for everyone to see</Text>
+      <Text>Home screen</Text>
     </View>
   );
 }
@@ -25,23 +25,23 @@ function AuthorizedScreen() {
 
 // The HelpScreen is always visible, but is located AFTER the Authorized option
 // in the navigator
-function HelpScreen() {
+function HelpScreen1() {
   const {navigate} = useNavigation();
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Help screen</Text>
+      <Text>Help Screen 1</Text>
       <Button
-        onPress={() => navigate('Help-secondary')}
-        title="To secondary help screen"
+        onPress={() => navigate('Help-screen2')}
+        title="To Help Screen 2"
       />
     </View>
   );
 }
 
-function SecondaryHelpScreen() {
+function HelpScreen2() {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Secondary help screen</Text>
+      <Text>Help Screen 2</Text>
     </View>
   );
 }
@@ -50,9 +50,9 @@ const Stack = createStackNavigator();
 
 function HelpNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Help-home">
-      <Stack.Screen name="Help-home" component={HelpScreen} />
-      <Stack.Screen name="Help-secondary" component={SecondaryHelpScreen} />
+    <Stack.Navigator initialRouteName="Help-screen1">
+      <Stack.Screen name="Help-screen1" component={HelpScreen1} />
+      <Stack.Screen name="Help-screen2" component={HelpScreen2} />
     </Stack.Navigator>
   );
 }
