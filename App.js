@@ -19,11 +19,19 @@ function AboutScreen() {
       <Button
         onPress={() =>
           navigation.reset({
-            index: 0,
+            routes: [{name: 'Home'}, {name: 'About'}, {name: 'Contact'}],
+          })
+        }
+        title="Reset to Contact without index"
+      />
+      <Button
+        onPress={() =>
+          navigation.reset({
+            index: 1,
             routes: [{name: 'Home'}, {name: 'Contact'}],
           })
         }
-        title="Reset to Contact with Home as previous"
+        title="Reset to Contact with index"
       />
     </View>
   );
